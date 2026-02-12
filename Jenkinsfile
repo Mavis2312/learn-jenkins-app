@@ -34,6 +34,14 @@ pipeline {
                     npm test
                 '''
             }
-        }
+        }     
     }
+
+    post{
+            always{
+                sh '''
+                    junit 'test-results/junit.xml'
+                '''
+            }
+        }
 }
