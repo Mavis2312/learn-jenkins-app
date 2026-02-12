@@ -38,10 +38,10 @@ pipeline {
     }
 
     post{
-            always{
-                sh '''
-                    junit 'test-results/junit.xml'
-                '''
-            }
+        always{
+            sh '''
+                junit 'test-results/junit.xml'
+            '''
         }
+    }
 }
