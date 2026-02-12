@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    // this is a comment
     stages {
         stage('Build') {
             agent{
@@ -37,6 +37,9 @@ pipeline {
             }
         }
     }
+    /*
+    Block a comment
+    */
     post{
         always{
             junit 'test-results/junit.xml'
