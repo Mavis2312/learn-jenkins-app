@@ -21,10 +21,16 @@ pipeline {
             }
         }
         stage('Test stage'){
+            agent{
+                docker{
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+            }
             steps{
                 sh '''
-                    cd build
-                    find -name index.html
+                    test -f 'build/index.html'
+                    echo 'Checked if the index.html file is Present'
                     npm test
                 '''
             }
