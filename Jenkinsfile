@@ -20,6 +20,7 @@ pipeline {
                 '''
             }
         }
+        
         stage('Test stage'){
             agent{
                 docker{
@@ -34,14 +35,14 @@ pipeline {
                     npm test
                 '''
             }
-        }     
-    }
-
-    post{
-        always{
-            sh '''
-                junit 'test-results/junit.xml'
-            '''
         }
+
+        post{
+            always{
+                sh '''
+                    junit 'test-results/junit.xml'
+                '''
+            }
+        }     
     }
 }
